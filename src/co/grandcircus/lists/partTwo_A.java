@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class partTwo_A {
-	
+
 // ARRAY VERSION OF LAB 19
 
 	public static void main(String[] args) {
@@ -13,7 +13,7 @@ public class partTwo_A {
 // array to be searched
 		int[] luckyNumbers = new int[11];
 // array to store frequencies
-		int[] numberFreq = new int[11];
+		int[] numberFrequency = new int[11];
 // temporarily holds the frequency values before written to array
 		int t = 0;
 
@@ -42,17 +42,17 @@ public class partTwo_A {
 // use a temporary variable to store and record the frequencies of diff numbz
 		for (int i = 0; i < luckyNumbers.length; i++) {
 			t = luckyNumbers[i];
-			numberFreq[t]++;
+			numberFrequency[t]++;
 		}
 
 		System.out.println("==== LUCKY NUMBERS BY TUPPERWARE ====");
 		System.out.println("============= RESULTS ===============");
-		for (int i = 0; i < numberFreq.length; i++) {
+		for (int i = 0; i < numberFrequency.length; i++) {
 // print out the number frequencies , profit
-			if (numberFreq[i] > 0 && numberFreq[i] == 1) {
-				System.out.printf("%d OCCURS %d TIME\n", i, numberFreq[i]);
-			} else if (numberFreq[i] >= 2) {
-				System.out.printf("%d OCCURS %d TIMES\n", i, numberFreq[i]);
+			if (numberFrequency[i] > 0 && numberFrequency[i] == 1) {
+				System.out.printf("%d OCCURS %d TIME\n", i, numberFrequency[i]);
+			} else if (numberFrequency[i] >= 2) {
+				System.out.printf("%d OCCURS %d TIMES\n", i, numberFrequency[i]);
 			}
 
 		}

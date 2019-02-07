@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Scanner;
+import java.util.Iterator;
 
 public class partTwo_B {
 
@@ -17,9 +18,8 @@ public class partTwo_B {
 		Scanner scnr = new Scanner(System.in);
 // this app is being written for Tupperware to help their party hosts make bank.
 // Hypothetically.
-		System.out.println("WELCOME TO THE TUPPERWARE PARTY GAME CENTER (BETA RELEASE 0.0.2)");
+		System.out.println("WELCOME TO THE TUPPERWARE PARTY GAME CENTER (BETA RELEASE 0.0.3 INCLUDING BACKGROUND OPTIMIZATION)");
 		System.out.println("Please take turns entering your LUCKY number.");
-		System.err.println("ONLY NUMBERS BETWEEN 1 - 10");
 
 		for (int i = 0; i < luckyNumbers.length; i++) {
 
@@ -29,26 +29,36 @@ public class partTwo_B {
 
 		}
 
-		HashMap<Integer, Integer> hNumberFreq = new HashMap<Integer, Integer>();
+		HashMap<Integer, Integer> numberFrequency = new HashMap<Integer, Integer>();
 
 		int count;
 
 		for (int i = 0; i < luckyNumbers.length; i++) {
-			if (hNumberFreq.get(luckyNumbers[i]) == null) {
-				hNumberFreq.put(luckyNumbers[i], 1);
+			if (numberFrequency.get(luckyNumbers[i]) == null) {
+				numberFrequency.put(luckyNumbers[i], 1);
 			} else {
-				count = hNumberFreq.get(luckyNumbers[i]);
+				count = numberFrequency.get(luckyNumbers[i]);
 				count++;
-				hNumberFreq.put(luckyNumbers[i], count);
+				numberFrequency.put(luckyNumbers[i], count);
 			}
 		}
 
-		System.out.println("==== LUCKY NUMBERS BY TUPPERWARE ====");
-		System.out.println("============= RESULTS ===============");
+		System.out.println("==== LUCKY NUMBERS BY TUPPERWARE ==");
+		System.out.println("============= RESULTS =============");
+		System.out.println("Lucky # ================= Frequency");
 
-		System.out.println(Arrays.asList(hNumberFreq));
+		//System.out.println(Arrays.asList(numberFrequency));
+
+		for (int variableName : numberFrequency.keySet()) {
+			int variableKey = variableName;
+			Integer variableValue = numberFrequency.get(variableName);
+
+			System.out.print(variableKey + "\t\t\t");
+			System.out.println("\t"+variableValue);
+		}
 
 	}
+
 } // END MAIN METHOD
 
 //		for (int i = 0; i < luckyNumbers.length; i++) {
