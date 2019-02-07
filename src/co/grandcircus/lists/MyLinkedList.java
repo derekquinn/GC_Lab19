@@ -11,6 +11,7 @@ public class MyLinkedList implements MyList {
 
 	public boolean removeAt(int index) {
 // not static because you need an object to use 
+
 		boolean inRange = true;
 
 		if (index == 0) {
@@ -27,20 +28,20 @@ public class MyLinkedList implements MyList {
 		}
 		if ((index > (length - 1)) || index < 0) {
 
-			Node node = head;
-			for (int i = 0; i < index - 1; i++) {
+			inRange = false;
 
-				// possibly incrementing twice????
+		} else {
+
+			Node node = head;
+
+			for (int i = 0; i < index - 1; i++) {
 				node = node.getNext();
 
 			}
-
-			// node.setNext(node.setNext(node.getNext()));
-
-			length++;
-
+			node.next = node.next.next;
+			length--;
+			inRange = true;
 		}
-
 		return inRange;
 
 	}
@@ -49,11 +50,33 @@ public class MyLinkedList implements MyList {
 
 	// dq method 2
 
-	public static boolean insertAt(int index, String item) {
+	public boolean insertAt(int index, String item) {
 
-		boolean insertAt = true;
+		if ((index > length) || index < 0) {
 
-		return insertAt;
+			return false;
+
+		}
+
+		else if (index == 0) {
+			addAtBeginning(item);
+			return true;
+		}
+
+		else if (index == length) {
+			addAtEnd(item);
+			return true;
+
+		} else {
+			Node node1 = getNodeAt((index - 1));
+			Node node3 = getNodeAt(index);
+			Node node2 = new Node(item);
+			node1.setNext(node2);
+			node2.setNext(node3);
+			length++;
+			return true;
+
+		}
 
 	}
 

@@ -3,7 +3,7 @@ package co.grandcircus.lists;
 public class Node {
 	
 	private String data;
-	private Node next;
+	public Node next;
 	
 	// linked list that holds strings declared above 
 	// every node has 1 value in it 
