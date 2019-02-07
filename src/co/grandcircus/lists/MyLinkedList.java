@@ -11,13 +11,28 @@ public class MyLinkedList implements MyList {
 
 	public boolean removeAt(int index) {
 // not static because you need an object to use 
-		boolean outOfRange = true;
-		return outOfRange; 
-		
-		
-		
-		
+		boolean inRange = true;
 
+		if (index == 0) {
+
+			removeFromBeginning();
+			inRange = true;
+
+		}
+		if (index == length - 1) {
+
+			removeFromEnd();
+			inRange = true;
+
+		}
+
+		else if (index > 0) {
+			
+			/// if the index is not at beginning or end 
+
+		}
+
+		return inRange;
 	}
 
 	// dq method 2
