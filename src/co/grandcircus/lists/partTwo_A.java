@@ -19,7 +19,7 @@ public class partTwo_A {
 		Scanner scnr = new Scanner(System.in);
 // this app is being written for Tupperware to help their party hosts make bank.
 // Hypothetically.
-		System.out.println("WELCOME TO THE TUPPERWARE PARTY GAME CENTER\n");
+		System.out.println("WELCOME TO THE TUPPERWARE PARTY GAME CENTER (BETA RELEASE 0.0.2) \n");
 		System.out.println("Please take turns entering your favorite number between 1-10");
 // collect the lucky numbers
 		for (int i = 0; i < luckyNumbers.length; i++) {
@@ -34,6 +34,9 @@ public class partTwo_A {
 			numberFreq[t]++;
 		}
 // print out the number frequencies , profit
+		
+		System.out.println("==== LUCKY NUMBERS BY TUPPERWARE ====");
+		System.out.println("============= RESULTS ===============");
 		for (int i = 0; i < numberFreq.length; i++) {
 
 			if (numberFreq[i] > 0 && numberFreq[i] == 1) {
@@ -43,7 +46,13 @@ public class partTwo_A {
 			}
 
 		}
+		
+		System.out.println("");
+		
+		System.out.println("Despite their kitschy reputation, Tupperware parties take place in more than 100 countries, \nwith 520,000 happening every year in France alone.");
 
-	}
+	} // END MAIN METHOD MAN
+	
+
 
 }
