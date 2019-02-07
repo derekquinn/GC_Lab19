@@ -19,21 +19,33 @@ public class MyLinkedList implements MyList {
 			inRange = true;
 
 		}
-		if (index == length - 1) {
+		if (index > length - 1) {
 
 			removeFromEnd();
 			inRange = true;
 
 		}
+		if ((index > (length - 1)) || index < 0) {
 
-		else if (index > 0) {
-			
-			/// if the index is not at beginning or end 
+			Node node = head;
+			for (int i = 0; i < index - 1; i++) {
+
+				// possibly incrementing twice????
+				node = node.getNext();
+
+			}
+
+			// node.setNext(node.setNext(node.getNext()));
+
+			length++;
 
 		}
 
 		return inRange;
+
 	}
+
+	/// if the index is not at beginning or end
 
 	// dq method 2
 
