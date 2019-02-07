@@ -2,18 +2,17 @@ package co.grandcircus.lists;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.Scanner;
 
-public class partTwo_A {
-	
-// ARRAY VERSION OF LAB 19
+public class partTwo_B {
+
+/// HASH MAP VERSION OF LAB 19
 
 	public static void main(String[] args) {
 
 // array to be searched
 		int[] luckyNumbers = new int[11];
-// array to store frequencies
-		int[] numberFreq = new int[11];
 // temporarily holds the frequency values before written to array
 		int t = 0;
 
@@ -36,23 +35,35 @@ public class partTwo_A {
 //	} catch (IndexOutOfBoundsException e) {
 //System.err.println("Lucky numbers can only be 1, 2, 3, 4, 5, 6,7,8,9 or 10.");
 		}
+
+		HashMap<Integer, Integer> hNumberFreq = new HashMap<Integer, Integer>();
+		int count;
+		for (int i = 0; i < luckyNumbers.length; i++) {
+			if (hNumberFreq.get(luckyNumbers[i]) == null) {
+				hNumberFreq.put(luckyNumbers[i], 1);
+			} else {
+				count = hNumberFreq.get(luckyNumbers[i]);
+				count++;
+				hNumberFreq.put(luckyNumbers[i], count);
+			}
+		}
 		// input ends when array reaches 11 in size
 //} TRY CATCH NOT WORKING YET
 
 // use a temporary variable to store and record the frequencies of diff numbz
 		for (int i = 0; i < luckyNumbers.length; i++) {
 			t = luckyNumbers[i];
-			numberFreq[t]++;
+			hNumberFreq[t]++;
 		}
 
 		System.out.println("==== LUCKY NUMBERS BY TUPPERWARE ====");
 		System.out.println("============= RESULTS ===============");
-		for (int i = 0; i < numberFreq.length; i++) {
+		for (int i = 0; i < hNumberFreq.length; i++) {
 // print out the number frequencies , profit
-			if (numberFreq[i] > 0 && numberFreq[i] == 1) {
-				System.out.printf("%d OCCURS %d TIME\n", i, numberFreq[i]);
-			} else if (numberFreq[i] >= 2) {
-				System.out.printf("%d OCCURS %d TIMES\n", i, numberFreq[i]);
+			if (hNumberFreq[i] > 0 && hNumberFreq[i] == 1) {
+				System.out.printf("%d OCCURS %d TIME\n", i, hNumberFreq[i]);
+			} else if (hNumberFreq[i] >= 2) {
+				System.out.printf("%d OCCURS %d TIMES\n", i, hNumberFreq[i]);
 			}
 
 		}
